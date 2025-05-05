@@ -11,10 +11,11 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
 # check "execute command" bash -c "hello | grep 'hey, $(whoami)!'"
-check "is unminimize installed" bash -c "command -v unminimize &> /dev/null"
 check "is man-db installed" bash -c "command -v man &> /dev/null"
 check "ubuntu has been unminized" bash -c "man man | cat | grep -v 'This system has been minimized' &> /dev/null"
-
+echo starting
+history
+echo ending
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults

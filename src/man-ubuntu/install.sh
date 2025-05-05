@@ -8,4 +8,7 @@ fi
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y man-db
 
-yes | unminimize
+if [ "$RUNUNMINIMIZE" = "true" ]
+then
+    yes | unminimize
+fi
