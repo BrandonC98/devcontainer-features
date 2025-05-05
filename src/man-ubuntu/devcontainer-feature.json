@@ -1,8 +1,8 @@
 {
-    "name": "man-ubuntu",
+    "name": "man (ubuntu)",
     "id": "man-ubuntu",
-    "version": "0.0.1",
-    "description": "Install man-db and unminimize ubuntu",
+    "version": "1.0.0",
+    "description": "Install man-db and unminimize ubuntu to provide documentation",
     "keywords": ["man", "man-db", "manual", "documentation", "ubuntu", "unminimize"],
     "options": {
         "runUnminimize": { 

@@ -10,7 +10,6 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-# check "execute command" bash -c "hello | grep 'hey, $(whoami)!'"
 check "is man-db installed" bash -c "command -v man &> /dev/null"
 check "ubuntu has not been unminized" bash -c "man man | cat | grep 'This system has been minimized' &> /dev/null" 
 
