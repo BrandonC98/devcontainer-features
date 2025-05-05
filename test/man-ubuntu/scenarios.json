@@ -1,5 +1,5 @@
 {
-    "hello": {
+    "man-ubuntu": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "man-ubuntu": {}
