@@ -1,0 +1,16 @@
+{
+    "name": "man-ubuntu",
+    "id": "man-ubuntu",
+    "version": "0.0.1",
+    "description": "Install man-db and unminimize ubuntu",
+    "options": {
+        "run": { 
+            "type": "boolean",
+            "default": "True",
+            "description": "Select if unminimize should run"
+        }
+    }
+
+
+
+}
