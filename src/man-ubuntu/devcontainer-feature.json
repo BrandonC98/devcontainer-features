@@ -1,0 +1,14 @@
+{
+    "name": "man (ubuntu)",
+    "id": "man-ubuntu",
+    "version": "1.0.0",
+    "description": "Install man-db and unminimize ubuntu to provide documentation",
+    "keywords": ["man", "man-db", "manual", "documentation", "ubuntu", "unminimize"],
+    "options": {
+        "runUnminimize": { 
+            "type": "boolean",
+            "default": true,
+            "description": "Run unminimize. required for man-db to get documentation on ubuntu. unminimize will be installed if not already"
+        }
+    }
+}

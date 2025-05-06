@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - man-ubuntu
         baseImage:
-          - debian:latest
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
+          - mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+          - mcr.microsoft.com/devcontainers/base:ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
@@ -34,8 +34,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - man-ubuntu
     steps:
       - uses: actions/checkout@v4
 

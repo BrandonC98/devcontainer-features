@@ -1,0 +1,18 @@
+{
+    "option-run-unminize-false": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "man-ubuntu": {
+                "runUnminimize": false
+            }
+        }
+    },
+    "option-run-unminize-universal-ubuntu": {
+        "image": "mcr.microsoft.com/devcontainers/universal:latest",
+        "features": {
+            "man-ubuntu": {
+                "runUnminimize": false
+            }
+        }
+    }
+}
