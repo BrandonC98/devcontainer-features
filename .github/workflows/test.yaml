@@ -14,6 +14,7 @@ jobs:
       matrix:
         features:
           - man-ubuntu
+          - argocd-autopilot
         baseImage:
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu

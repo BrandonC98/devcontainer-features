@@ -1,0 +1,14 @@
+{
+    "name": "ArgoCD Autopilot",
+    "id": "argocd-autopilot",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": ["ArgoCD", "kubernetes", "GitOps", "CD"],
+    "options": {
+        "version": { 
+            "type": "string",
+            "default": "0.4.20",
+            "description": ""
+        }
+    }
+}
