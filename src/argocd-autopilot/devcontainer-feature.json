@@ -1,0 +1,17 @@
+{
+    "name": "ArgoCD Autopilot",
+    "id": "argocd-autopilot",
+    "version": "1.0.0",
+    "description": "Install ArgoCD Autopilot. Installed from the git releases page. Debian/Ubuntu are only supported for this feature",
+    "keywords": ["ArgoCD", "Kubernetes", "GitOps", "continous delivery"],
+    "options": {
+        "version": { 
+            "type": "string",
+            "default": "latest",
+            "description": "version to install. latest will be used by default. version example 'v0.4.20'."
+        }
+    },
+    "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

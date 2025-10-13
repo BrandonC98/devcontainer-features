@@ -1,0 +1,18 @@
+{
+    "install-with-a-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "argocd-autopilot": {
+                "version": "v0.4.20"
+            }
+        }
+    },
+    "install-with-latest": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+        "features": {
+            "argocd-autopilot": {
+                "version": "latest"
+            }
+        }
+    }
+}
