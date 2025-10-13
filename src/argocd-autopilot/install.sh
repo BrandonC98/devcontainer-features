@@ -33,37 +33,16 @@ cleanup() {
 }
 
 install_argocd_autopilot() {
+    if [ -z "$VERSION" ] || [ "$VERSION" == "latest" ]; then
+        VERSION=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+    fi
 
-if [ -z "$VERSION" ] || [ "$VERSION" == "latest" ]; then
-    VERSION=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
-fi
+    curl -L --output - https://github.com/argoproj-labs/argocd-autopilot/releases/download/$VERSION/argocd-autopilot-linux-amd64.tar.gz | tar zx
 
-# download and extract the binary
-curl -L --output - https://github.com/argoproj-labs/argocd-autopilot/releases/download/$VERSION/argocd-autopilot-linux-amd64.tar.gz | tar zx
-
-ls
-# move the binary to your $PATH
-mv ./argocd-autopilot-* /usr/local/bin/argocd-autopilot
-
-# check the installation
-argocd-autopilot version
+    mv ./argocd-autopilot-* /usr/local/bin/argocd-autopilot
 }
+
+trap cleanup EXIT
 
 setup
 install_argocd_autopilot
-trap cleanup EXIT
-# apt-get update -y
-
-# apt-get install -y curl tar
-
-# get the latest version or change to a specific version
-# LATEST=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
-
-# # download and extract the binary
-# curl -L --output - https://github.com/argoproj-labs/argocd-autopilot/releases/download/$VERSION/argocd-autopilot-linux-amd64.tar.gz | tar zx
-
-# # move the binary to your $PATH
-# mv ./argocd-autopilot-* /usr/local/bin/argocd-autopilot
-
-# # check the installation
-# argocd-autopilot version
