@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 
-REQUIRED_TOOLS=("curl" "tar")
+REQUIRED_TOOLS=("curl" "tar" "ca-certificates")
 NEWLEY_INSTALLED_TOOLS=()
 APT_UPDATED=false
 
 # Install the needed tools
 setup() {
     for tool in "${REQUIRED_TOOLS[@]}"; do
-        if ! dpkg -s "$tool" >/dev/null 2?&1; then
+        if ! dpkg -s "$tool" >/dev/null 2>&1; then
             echo "$tool is not installed. Installing..."
 
             if [ "$APT_UPDATED" = false ]; then
@@ -16,8 +16,8 @@ setup() {
                 APT_UPDATED=true
             fi
 
-        DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$tool"
-        NEWLY_INSTALLED_TOOLS+=("$tool")
+            DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$tool"
+            NEWLEY_INSTALLED_TOOLS+=("$tool")
 
         else
             echo "$tool is already installed."
@@ -34,7 +34,7 @@ cleanup() {
 
 install_argocd_autopilot() {
 
-if [ -n "$VERSION" || "$VERSION" == "latest" ]; then
+if [ -z "$VERSION" ] || [ "$VERSION" == "latest" ]; then
     VERSION=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
 fi
 
@@ -51,7 +51,7 @@ argocd-autopilot version
 
 setup
 install_argocd_autopilot
-cleanup
+trap cleanup EXIT
 # apt-get update -y
 
 # apt-get install -y curl tar
